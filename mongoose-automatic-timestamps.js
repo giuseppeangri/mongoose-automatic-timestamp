@@ -71,6 +71,8 @@ function mongooseAutomaticTimestamp(schema, options) {
     function preSave(next) {
 
         var document = this;
+
+        console.log(document);
         
         timestampsOnCreate.forEach(function(timestampOnCreate) {
             (aggregate) ? document[aggregateName][timestampOnCreate] = new Date() : document[timestampOnCreate] = new Date();
